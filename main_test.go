@@ -56,7 +56,7 @@ func TestMainHandlerWhenStatusOKBodyNotEmpty(t *testing.T) {
 	reqCity := "moscow"
 	reqUri := fmt.Sprintf("/cafe?count=%d&city=%s", reqCityCoount, reqCity)
 
-	req := httptest.NewRequest("GET", reqUri, nil)
+	req := httptest.NewRequest(http.MethodGet, reqUri, nil)
 
 	responseRecorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(mainHandle)
@@ -74,7 +74,7 @@ func TestMainHandlerWhenWrongCity(t *testing.T) {
 	reqCity := "moscow1"
 	reqUri := fmt.Sprintf("/cafe?count=%d&city=%s", reqCityCoount, reqCity)
 
-	req := httptest.NewRequest("GET", reqUri, nil)
+	req := httptest.NewRequest(http.MethodGet, reqUri, nil)
 
 	responseRecorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(mainHandle)
@@ -95,7 +95,7 @@ func TestMainHandlerWhenCountMoreThanTotal(t *testing.T) {
 	reqCity := "moscow"
 	reqUri := fmt.Sprintf("/cafe?count=%d&city=%s", reqCityCoount, reqCity)
 
-	req := httptest.NewRequest("GET", reqUri, nil)
+	req := httptest.NewRequest(http.MethodGet, reqUri, nil)
 
 	responseRecorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(mainHandle)
